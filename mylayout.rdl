@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="PostingDateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PostingDateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PostingDateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InTransitCode_TransRcptHdrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>InTransitCode_TransRcptHdrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>InTransitCode_TransRcptHdrCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RcptDate_TransRcptHdrCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RcptDate_TransRcptHdrCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RcptDate_TransRcptHdrCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ItemNo_TransRcpLineCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ItemNo_TransRcpLineCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ItemNo_TransRcpLineCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Desc_TransRcpLineCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Desc_TransRcpLineCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Desc_TransRcpLineCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Qty_TransRcpLineCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Qty_TransRcpLineCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Qty_TransRcpLineCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="UOM_TransRcpLineCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>UOM_TransRcpLineCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>UOM_TransRcpLineCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_TransRcptHdr">
+          <DataField>No_TransRcptHdr</DataField>
+        </Field>
+        <Field Name="CopyText">
+          <DataField>CopyText</DataField>
+        </Field>
+        <Field Name="TransferToAddr1">
+          <DataField>TransferToAddr1</DataField>
+        </Field>
+        <Field Name="TransferToAddr2">
+          <DataField>TransferToAddr2</DataField>
+        </Field>
+        <Field Name="TransferToAddr3">
+          <DataField>TransferToAddr3</DataField>
+        </Field>
+        <Field Name="TransferToAddr4">
+          <DataField>TransferToAddr4</DataField>
+        </Field>
+        <Field Name="TransferToAddr5">
+          <DataField>TransferToAddr5</DataField>
+        </Field>
+        <Field Name="TransferToAddr6">
+          <DataField>TransferToAddr6</DataField>
+        </Field>
+        <Field Name="InTransitCode_TransRcptHdr">
+          <DataField>InTransitCode_TransRcptHdr</DataField>
+        </Field>
+        <Field Name="PostingDate_TransRcptHdr">
+          <DataField>PostingDate_TransRcptHdr</DataField>
+        </Field>
+        <Field Name="No2_TransRcptHdr">
+          <DataField>No2_TransRcptHdr</DataField>
+        </Field>
+        <Field Name="TransferToAddr7">
+          <DataField>TransferToAddr7</DataField>
+        </Field>
+        <Field Name="TransferToAddr8">
+          <DataField>TransferToAddr8</DataField>
+        </Field>
+        <Field Name="RcptDate_TransRcptHdr">
+          <DataField>RcptDate_TransRcptHdr</DataField>
+        </Field>
+        <Field Name="TransferFromAddr8">
+          <DataField>TransferFromAddr8</DataField>
+        </Field>
+        <Field Name="TransferFromAddr7">
+          <DataField>TransferFromAddr7</DataField>
+        </Field>
+        <Field Name="TransferFromAddr6">
+          <DataField>TransferFromAddr6</DataField>
+        </Field>
+        <Field Name="TransferFromAddr5">
+          <DataField>TransferFromAddr5</DataField>
+        </Field>
+        <Field Name="TransferFromAddr4">
+          <DataField>TransferFromAddr4</DataField>
+        </Field>
+        <Field Name="TransferFromAddr3">
+          <DataField>TransferFromAddr3</DataField>
+        </Field>
+        <Field Name="TransferFromAddr2">
+          <DataField>TransferFromAddr2</DataField>
+        </Field>
+        <Field Name="TransferFromAddr1">
+          <DataField>TransferFromAddr1</DataField>
+        </Field>
+        <Field Name="PageCaption">
+          <DataField>PageCaption</DataField>
+        </Field>
+        <Field Name="OutputNo">
+          <DataField>OutputNo</DataField>
+        </Field>
+        <Field Name="TransRcptHdrNo2Caption">
+          <DataField>TransRcptHdrNo2Caption</DataField>
+        </Field>
+        <Field Name="DimText">
+          <DataField>DimText</DataField>
+        </Field>
+        <Field Name="DimensionLoop1Number">
+          <DataField>DimensionLoop1Number</DataField>
+        </Field>
+        <Field Name="HdrDimCaption">
+          <DataField>HdrDimCaption</DataField>
+        </Field>
+        <Field Name="ShowInternalInfo">
+          <DataField>ShowInternalInfo</DataField>
+        </Field>
+        <Field Name="ItemNo_TransRcpLine">
+          <DataField>ItemNo_TransRcpLine</DataField>
+        </Field>
+        <Field Name="Desc_TransRcpLine">
+          <DataField>Desc_TransRcpLine</DataField>
+        </Field>
+        <Field Name="Qty_TransRcpLine">
+          <DataField>Qty_TransRcpLine</DataField>
+        </Field>
+        <Field Name="Qty_TransRcpLineFormat">
+          <DataField>Qty_TransRcpLineFormat</DataField>
+        </Field>
+        <Field Name="UOM_TransRcpLine">
+          <DataField>UOM_TransRcpLine</DataField>
+        </Field>
+        <Field Name="LineNo_TransRcpLine">
+          <DataField>LineNo_TransRcpLine</DataField>
+        </Field>
+        <Field Name="DimText2">
+          <DataField>DimText2</DataField>
+        </Field>
+        <Field Name="DimensionLoop2Number">
+          <DataField>DimensionLoop2Number</DataField>
+        </Field>
+        <Field Name="LineDimCaption">
+          <DataField>LineDimCaption</DataField>
+        </Field>
+        <Field Name="Transfer_Order_No_">
+          <DataField>Transfer_Order_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
